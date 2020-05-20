@@ -1,6 +1,6 @@
 # CI3-ELOQUENT
 
-A simple eloquent for easier your life.
+A query builder++ on codeigniter3 for easier your life.
 
 ## HOW TO USE
 
@@ -13,6 +13,10 @@ composer require maika-kanaka/ci3-eloquent
 - Step 2: Extend your model & define your table name in property
 
 ```
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+
+use Eloquent\Eloquent;
+
 class My_model_name extends Eloquent
 {
 
@@ -30,8 +34,9 @@ class My_model_name extends Eloquent
 
 - table(alias)
 
-Param | Type | Required | Description
-alias | String | No | Given alias to your table, it's usefull when you're using join statement
+| Param | Type | Required | Description |
+| --- | --- | --- | --- |
+| alias | String | No | Given alias to your table, it's usefull when you're using join statement
 
 Example 1: a simple query to get data
 
@@ -49,8 +54,9 @@ $data = $this->My_model_name->table('t1')
 
 - insert(data)
 
-Param | Type | Required | Description
-data | Array | Yes | Data to insert
+| Param | Type | Required | Description |
+| --- | --- | --- | --- |
+| data | Array | Yes | Data to insert |
 
 ~ Example 1: Insert one row
 
@@ -72,8 +78,9 @@ $this->My_model_name->insert($insert);
 
 - delete(where)
 
-Param | Type | Required | Description
-where | Array | Yes | Specific data to be deleted
+| Param | Type | Required | Description |
+| --- | --- | --- | --- |
+| where | Array | Yes | Specific data to be deleted |
 
 ```
 $this->My_model_name->delete(['my_primary_key' => 'value']);
@@ -84,6 +91,10 @@ $this->My_model_name->delete(['my_primary_key' => 'value']);
 If you're using this method. You must define your field primary key on property model
 
 ```
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+
+use Eloquent\Eloquent;
+
 class My_model_name extends Eloquent
 {
 
@@ -104,8 +115,7 @@ Then, you can using this method & get the increment
 $increment = $this->My_model_name->primaryKeyInc();
 ```
 
-
-### TODO LIST
+## TODO LIST
 
 - Adding primary key by format PREFIX(separator)YEARMONTH(separator)INCREMENT
   Example: INV-202001-0001
