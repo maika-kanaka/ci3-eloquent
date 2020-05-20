@@ -3,6 +3,9 @@
 class Eloquent extends \CI_Model 
 {
 
+    // required property: table name 
+    public $table;
+
     // field name for primary key 
     public $primary_key;
 
@@ -41,10 +44,10 @@ class Eloquent extends \CI_Model
       return $detail;
     }
 
-    public function primaryKeyInc($primary_key ='')
+    public function primaryKeyInc()
     {
       $data = $this->table()
-                      ->order_by($primary_key, 'desc')
+                      ->order_by($this->primary_key, 'desc')
                       ->get()
                       ->row();
 
@@ -52,7 +55,7 @@ class Eloquent extends \CI_Model
         return 1;
       }
 
-      return $data->$primary_key + 1;
+      return $data->$this->primary_key + 1;
     }
 
     private function _getdb()
