@@ -110,6 +110,12 @@ $increment = $this->My_model_name->primaryKeyInc();
 - Adding primary key by format PREFIX(separator)YEARMONTH(separator)INCREMENT
   Example: INV-202001-0001
 
+- Method update
+
+- Method find (with primary or no)
+
+- Method find_or_404()
+
 ## LICENSE 
 
 MIT
