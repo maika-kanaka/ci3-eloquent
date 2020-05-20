@@ -1,0 +1,20 @@
+{
+    "name": "maika-kanaka/ci3-eloquent",
+    "description": "A simple eloquent for easier your life",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Maika Kanaka",
+            "email": "maika-kanaka@protonmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Eloquent\\": "src\\"
+        }
+    }
+}
