@@ -115,10 +115,42 @@ Then, you can using this method & get the increment
 $increment = $this->My_model_name->primaryKeyInc();
 ```
 
-## TODO LIST
+- primaryKey([opts])
 
-- Adding primary key by format PREFIX(separator)YEARMONTH(separator)INCREMENT
-  Example: INV-202001-0001
+Firstly, The same as the primaryKeyInc() method, you must define your field primary key on property model 
+
+| Param | Type | Required | Description |
+| --- | --- | --- | --- |
+| format | String | Yes | Prefix for generate code, take it for example: If you want the return value is INV/202010/0001 so the format is **INV** |
+| separator | String | No | Separator for generate code, take it for example: If you want the return value is INV-202010-0001 so the separator is **-** |
+| digit_inc | Integer | No | Digit increment, Default value: 4
+| reset_monthly | Boolean | No | Fill yearmonth in return value & reset the increment every month changed. Default value: TRUE |
+
+~ Example 1: Generate code & reset increment every month
+
+```
+  $pk = $this->My_model_name->primaryKey([
+    "format" => "INV", 
+    "separator" => "-",
+    "digit_inc" => 5
+  ]);
+
+  # return value is: INV-202010-00001
+```
+
+~ Example 2: Generate code & non reset increment
+
+```
+  $pk = $this->My_model_name->primaryKey([
+    "format" => "KTG", 
+    "separator" => "",
+    "digit_inc" => 6
+  ]);
+
+  # return value is: KTG000001
+```
+
+## TODO LIST
 
 - Method update
 
