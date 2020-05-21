@@ -172,14 +172,6 @@ Firstly, The same as the primaryKeyInc() method, you must define your field prim
   # return value is: KTG000001
 ```
 
-## TODO LIST
-
-- Method update
-
-- Method find (with primary or no)
-
-- Method find_or_404()
-
 ## LICENSE 
 
 MIT
