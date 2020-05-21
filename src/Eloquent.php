@@ -35,15 +35,22 @@ class Eloquent extends \CI_Model
         }
     }
 
-    public function find($where)
+    public function find($val_or_where)
     {
+        if( !is_array($val_or_where) ){
+            $where = [$this->primary_key => $val_or_where];
+        }
+        else{
+            $where = $val_or_where;
+        }
+
         $detail = $this->table()->where($where)->get()->row();
         return $detail;
     }
 
-    public function find_or_404($where)
+    public function find_or_404($val_or_where)
     {
-      $detail = $this->find($where);
+      $detail = $this->find($val_or_where);
 
       if(empty($detail)){
         show_404();

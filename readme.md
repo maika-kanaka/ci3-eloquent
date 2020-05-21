@@ -36,7 +36,7 @@ class My_model_name extends Eloquent
 
 | Param | Type | Required | Description |
 | --- | --- | --- | --- |
-| alias | String | No | Given alias to your table, it's usefull when you're using join statement
+| alias | String | No | Given alias to your table, it's usefull when you're using join statement |
 
 Example 1: a simple query to get data
 
@@ -51,6 +51,28 @@ $data = $this->My_model_name->table('t1')
               ->join('my_other_table_name AS t2', 't1.id_fk = t2.id_fk')
               ->get()->result();
 ```
+
+- find(where)
+
+| Param | Type | Required | Description |
+| --- | --- | --- | --- |
+| where | Array or Integer or String | No | Get the first row with where clause |
+
+~ Example 1: get the first row with primary key
+
+```
+$data = $this->My_model_name->find('INV-202010-0001');
+```
+
+~ Example 1: get the first row with other column
+
+```
+$data = $this->My_model_name->find(['status => 'active', 'is_stok' => 'Y']);
+```
+
+- find_or_404(where)
+
+This method is exactly same as the find() method but if the return value is null then it will appear 404 page
 
 - insert(data)
 
