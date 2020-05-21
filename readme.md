@@ -32,7 +32,9 @@ class My_model_name extends Eloquent
 
 ### METHOD
 
-- table(alias)
+<details><summary><b>table(alias)</b></summary>
+
+<br />
 
 | Param | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -51,8 +53,11 @@ $data = $this->My_model_name->table('t1')
               ->join('my_other_table_name AS t2', 't1.id_fk = t2.id_fk')
               ->get()->result();
 ```
+</details>
 
-- find(where)
+<details><summary><b>find(where)</b></summary>
+
+<br />
 
 | Param | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -69,12 +74,19 @@ $data = $this->My_model_name->find('INV-202010-0001');
 ```
 $data = $this->My_model_name->find(['status => 'active', 'is_stok' => 'Y']);
 ```
+</details>
 
-- find_or_404(where)
+<details><summary><b>find_or_404(where)</b></summary>
+
+<br />
 
 This method is exactly same as the find() method but if the return value is null then it will appear 404 page
 
-- insert(data)
+</details>
+
+<details><summary><b>insert(data)</b></summary>
+
+<br />
 
 | Param | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -97,8 +109,66 @@ $insert[] = ['field_name_1' => 'test1', 'field_name_2' => 'Testing1'];
 $insert[] = ['field_name_1' => 'test2', 'field_name_2' => 'Testing2'];
 $this->My_model_name->insert($insert);
 ```
+</details>
 
-- delete(where)
+<details><summary><b>update(where, set)</b></summary>
+
+<br />
+
+| Param | Type | Required | Description |
+| --- | --- | --- | --- |
+| where | Array | Yes | Specific data to be updated |
+| set | Array | Yes | Column & value to be updated |
+
+```
+$this->My_model_name->update(['my_primary_key' => '1'], ['my_field_name' => 'new value']);
+```
+
+</details>
+
+<details><summary><b>updateIncrement(where, field_name)</b></summary>
+
+<br />
+
+| Param | Type | Required | Description |
+| --- | --- | --- | --- |
+| where | Array | Yes | Specific data to be updated |
+| field_name | String | Yes | Column & value to be updated |
+
+```
+$this->My_model_name->updateIncrement(
+	['kode_produk' => 'INV-202004-0001'],
+	'jumlah_stok'
+);
+```
+
+If the value of field jumlah_stok is 10 then the new value is 11
+
+</details>
+
+<details><summary><b>updateDecrement(where, field_name)</b></summary>
+
+<br />
+
+| Param | Type | Required | Description |
+| --- | --- | --- | --- |
+| where | Array | Yes | Specific data to be updated |
+| field_name | String | Yes | Column & value to be updated |
+
+```
+$this->My_model_name->updateDecrement(
+	['kode_produk' => 'INV-202004-0001'],
+	'jumlah_stok'
+);
+```
+
+If the value of field jumlah_stok is 10 then the new value is 9
+
+</details>
+
+<details><summary><b>delete(where)</b></summary>
+
+<br />
 
 | Param | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -107,8 +177,11 @@ $this->My_model_name->insert($insert);
 ```
 $this->My_model_name->delete(['my_primary_key' => 'value']);
 ```
+</details>
 
-- primaryKeyInc()
+<details><summary><b>primaryKeyInc()</b></summary>
+
+<br />
 
 If you're using this method. You must define your field primary key on property model
 
@@ -136,8 +209,11 @@ Then, you can using this method & get the increment
 ```
 $increment = $this->My_model_name->primaryKeyInc();
 ```
+</details>
 
-- primaryKey([opts])
+<details><summary><b>primaryKey([opts])</b></summary>
+
+<br />
 
 Firstly, The same as the primaryKeyInc() method, you must define your field primary key on property model 
 
@@ -171,6 +247,7 @@ Firstly, The same as the primaryKeyInc() method, you must define your field prim
 
   # return value is: KTG000001
 ```
+</details>
 
 ## LICENSE 
 

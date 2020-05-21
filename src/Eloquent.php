@@ -66,6 +66,20 @@ class Eloquent extends \CI_Model
                      ->update($this->table, $data);
     }
 
+    public function updateIncrement($where, $column)
+    {
+        return $this->_getdb()->where($where)
+                    ->set($column, "$column + 1", FALSE)
+                    ->update($this->table);
+    }
+
+    public function updateDecrement($where, $column)
+    {
+        return $this->_getdb()->where($where)
+                    ->set($column, "$column - 1", FALSE)
+                    ->update($this->table);
+    }
+
     public function primaryKeyInc()
     {
         $data = $this->table()
