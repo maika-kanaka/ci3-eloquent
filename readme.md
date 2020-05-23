@@ -1,6 +1,8 @@
 # CI3-ELOQUENT
 
 <img src="https://img.shields.io/packagist/php-v/maika-kanaka/ci3-eloquent">
+<img src="https://img.shields.io/badge/codeigniter--version-3-green">
+<img src="https://img.shields.io/github/license/maika-kanaka/ci3-eloquent">
 
 A query builder++ on codeigniter3 for easier your life.
 
