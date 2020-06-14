@@ -91,7 +91,8 @@ class Eloquent extends \CI_Model
             return 1;
         }
 
-        return $data->$this->primary_key + 1;
+        $primary_key = $this->primary_key;
+        return $data->$primary_key + 1;
     }
 
     /**
