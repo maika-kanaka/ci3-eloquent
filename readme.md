@@ -1,5 +1,7 @@
 # CI3-ELOQUENT
 
+<img src="https://img.shields.io/packagist/php-v/maika-kanaka/ci3-eloquent" /> <img src="https://img.shields.io/badge/codeigniter--version-3-green" /> <img src="https://img.shields.io/github/license/maika-kanaka/ci3-eloquent" />
+
 A query builder++ on codeigniter3 for easier your life.
 
 ## HOW TO USE
@@ -242,7 +244,8 @@ Firstly, The same as the primaryKeyInc() method, you must define your field prim
   $pk = $this->My_model_name->primaryKey([
     "format" => "KTG", 
     "separator" => "",
-    "digit_inc" => 6
+    "digit_inc" => 6,
+    "reset_monthly" => FALSE
   ]);
 
   # return value is: KTG000001
@@ -251,4 +254,4 @@ Firstly, The same as the primaryKeyInc() method, you must define your field prim
 
 ## LICENSE 
 
-MIT
+Usage is provided under the [MIT License](http://opensource.org/licenses/mit-license.php). See LICENSE for the full details.
