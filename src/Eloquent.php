@@ -167,7 +167,9 @@ class Eloquent extends \CI_Model
         if ($this->db_using == 'default') {
             return $this->db;
         } else {
-            $this->$this->db_using = $this->load->database($this->db_using, true);
+            $db_using = $this->db_using;
+            $this->$db_using = $this->load->database($db_using, true);
+            return $this->$db_using;
         }
     }
 }
