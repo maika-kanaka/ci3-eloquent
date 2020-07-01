@@ -66,6 +66,14 @@ class Eloquent extends \CI_Model
                      ->update($this->table, $data);
     }
 
+    public function delete($where)
+    {
+        if( !is_array($where) ){
+            $where = [$this->primary_key => $where];
+        }
+        $this->_getdb()->delete($this->table, $where);
+    }
+
     public function updateIncrement($where, $column)
     {
         return $this->_getdb()->where($where)
