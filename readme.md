@@ -174,8 +174,14 @@ If the value of field jumlah_stok is 10 then the new value is 9
 
 | Param | Type | Required | Description |
 | --- | --- | --- | --- |
-| where | Array | Yes | Specific data to be deleted |
+| where | Array or Integer or String | Yes | Specific data to be deleted |
 
+~ Example 1: where clause on primary key 
+```
+$this->My_model_name->delete('INV-202004-0001');
+```
+
+~ Example 2: where custom field clause
 ```
 $this->My_model_name->delete(['my_primary_key' => 'value']);
 ```
